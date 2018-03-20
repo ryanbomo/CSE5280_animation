@@ -1,0 +1,16 @@
+The sample video shows only two groups of pedestrians moving along the horizontal direction. Add two more groups that move vertically.
+
+Your implementation should use the cost-minimization approach as described by Equations 3.1 and 3.2 in Breen's paper.  
+
+cost_min.compressed.pdfPreview the document 
+
+For each pedestrian,
+
+    Calculate the overall cost of taking a step. This calculation is done locally around the pedestrian's current location
+    Calculate the gradient (vector) of the cost
+    Take a step towards the direction negative to the gradient. Display this direction as a "heading" vector for each pedestrian.
+    Repeat steps 1 to 3 until the distance between the pedestrian and target location is "small enough".   
+
+Submit your code to this canvas dropbox. Bring your laptop to demonstrate your animation in class (video demo). 
+
+Locally, each pedestrian is taking the step that minimizes the cost function. The calculation is an instance of the optimization method called gradient descent (https://en.wikipedia.org/wiki/Gradient_descent (Links to an external site.)Links to an external site.). The gradient calculation and examples are given here (https://en.wikipedia.org/wiki/Gradient (Links to an external site.)Links to an external site.). 
