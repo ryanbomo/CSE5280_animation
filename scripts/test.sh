@@ -1,4 +1,4 @@
 #! /bin/bash
-export BROWSER=chromium-browser
+export BROWSER=firefox
 cd ../src
 python3.5 main.py

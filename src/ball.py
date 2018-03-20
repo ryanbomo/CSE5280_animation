@@ -1,5 +1,4 @@
 from vpython import *
-import copy
 from math import *
 
 
@@ -10,12 +9,21 @@ class Ball:
     def __init__(self, vect, rad, col,dest_coordinates):
         self.vector = vect
         self.arrow_vect = vector(0,0,0)
-        
         self.color = col
         self.radius = rad
         self.destination = dest_coordinates
         self.vpython_object = sphere(pos=self.vector, radius=self.radius, color=self.color)
         self.arrow = arrow(pos=self.vpython_object.pos, axis=self.arrow_vect, color=color.yellow)
+
+    def update_objects(self, list_of_objects):
+        self.other_objects = list_of_objects
+        return 1
+    
+    def get_X(self):
+        return self.vector.x
+    
+    def get_Y(self):
+        return self.vector.y
         
     def move(self,d_X, d_Y):
         # Update X and Y
@@ -23,8 +31,8 @@ class Ball:
         self.vector.y += d_Y
         
         # Update Arrow X and Y
-        self.arrow_vect.x = 10*d_X
-        self.arrow_vect.y = 10*d_Y
+        self.arrow_vect.x = 5*d_X
+        self.arrow_vect.y = 5*d_Y
         
         # Update vpython Objects
         self.vpython_object.pos = self.vector
@@ -32,7 +40,8 @@ class Ball:
         self.arrow.axis = self.arrow_vect
         
     def descend_gradient(self):
-        #set local_min to current energy, that way if no step is better than current location, no step is taken
+        #set local_min to current energy, that way if no step is better 
+        #then current location, no step is taken
         local_min = self.current_energy
         current_x = self.vector.x
         current_y = self.vector.y
@@ -43,7 +52,7 @@ class Ball:
         #Distance of Each Step
         step_distance = 0.1
         #Precision of Gradient in Degrees (30 would be a 30 degree increment, so [0,30,60,90...360))
-        precision = 5
+        precision = 10
         i = 0
         while i<360:
             # Get Point
@@ -68,18 +77,6 @@ class Ball:
             i+=precision
         #move to point
         self.move(d_X, d_Y)
-        
-        
-        
-    def update_objects(self, list_of_objects):
-        self.other_objects = list_of_objects
-        return 1
-    
-    def get_X(self):
-        return self.vector.x
-    
-    def get_Y(self):
-        return self.vector.y
         
         
     def check_collision(self,X,Y):

@@ -2,37 +2,36 @@
 #Author: Ryan Bomalaski
 #Date: 03/19/2018
 
-from board import *
 from ball import Ball
 from obstacle import Obstacle
 from vpython import *
         
         
 ## Create list of balls, using origin Vector and goal coordinates    
-red_balls_info = [[vector(9,1,0),[-10,1]],
-             [vector(9,0,0),[-10,0]],
-             [vector(9,-1,0),[-10,-1]],
-             [vector(10,1,0),[-9,1]],
-             [vector(10,0,0),[-9,0]],
-             [vector(10,-1,0),[-9,-1]]]
-green_balls_info = [[vector(1,10,0),[1,-9]],
-               [vector(0,10,0),[0,-9]],
-               [vector(-1,10,0),[-1,-9]],
-               [vector(1,9,0),[1,-10]],
-               [vector(0,9,0),[0,-10]],
-               [vector(-1,9,0),[-1,-10]]]
-cyan_balls_info = [[vector(1,-10,0),[1,9]],
-              [vector(0,-10,0),[0,9]],
-              [vector(-1,-10,0),[-1,9]],
-              [vector(1,-9,0),[1,10]],
-              [vector(0,-9,0),[0,10]],
-              [vector(-1,-9,0),[-1,10]]]
-blue_balls_info = [[vector(-9,1,0), [10,1]],
-              [vector(-9,0,0), [10,0]],
-              [vector(-9,-1,0), [10,-1]],
-              [vector(-10,1,0),[9,1]],
-              [vector(-10,0,0),[9,0]],
-              [vector(-10,-1,0),[9,-1]]]
+red_balls_info = [[vector(6,1,0),[-7,1]],
+             [vector(6,0,0),[-7,0]],
+             [vector(6,-1,0),[-7,-1]],
+             [vector(7,1,0),[-6,1]],
+             [vector(7,0,0),[-6,0]],
+             [vector(7,-1,0),[-6,-1]]]
+green_balls_info = [[vector(1,7,0),[1,-6]],
+               [vector(0,7,0),[0,-6]],
+               [vector(-1,7,0),[-1,-6]],
+               [vector(1,6,0),[1,-7]],
+               [vector(0,6,0),[0,-7]],
+               [vector(-1,6,0),[-1,-7]]]
+cyan_balls_info = [[vector(1,-7,0),[1,6]],
+              [vector(0,-7,0),[0,6]],
+              [vector(-1,-7,0),[-1,6]],
+              [vector(1,-6,0),[1,7]],
+              [vector(0,-6,0),[0,7]],
+              [vector(-1,-6,0),[-1,7]]]
+blue_balls_info = [[vector(-6,1,0), [7,1]],
+              [vector(-6,0,0), [7,0]],
+              [vector(-6,-1,0), [7,-1]],
+              [vector(-7,1,0),[6,1]],
+              [vector(-7,0,0),[6,0]],
+              [vector(-7,-1,0),[6,-1]]]
 
 ## Create list of ball objects
 blue_balls = []
@@ -68,16 +67,15 @@ for i in cyan_balls:
 for i in list_of_balls:
     list_of_objects.append(i)
 
+obstacles = [Obstacle(0,0),
+             Obstacle(1.5,1.5),
+             Obstacle(-1.5,-1.5),
+             Obstacle(1.5,-1.5),
+             Obstacle(-1.5,1.5)]
 
-obstacle1 = Obstacle(-2,-2)
-obstacle2 = Obstacle(2,-2)
-obstacle3 = Obstacle(-2,2)
-obstacle4 = Obstacle(2,2)
-    
-list_of_objects.append(obstacle1)
-list_of_objects.append(obstacle2)
-list_of_objects.append(obstacle3)
-list_of_objects.append(obstacle4)
+
+for i in obstacles:
+    list_of_objects.append(i)
 
 while True:
     for i in range(len(list_of_balls)):

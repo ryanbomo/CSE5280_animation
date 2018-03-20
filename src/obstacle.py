@@ -1,12 +1,11 @@
-
 from vpython import *
 
 class Obstacle:
     def __init__(self, x,y):
-        self.field_radius = 1
+        self.field_radius = .8
         self.x = x
         self.y = y
-        self.rod = cylinder(pos=vector(self.x, self.y,0), axis=vector(0,0,1), radius = 1)
+        self.rod = cylinder(pos=vector(self.x, self.y,0), axis=vector(0,0,1), radius = .75)
         
     
     def get_X(self):
